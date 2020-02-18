@@ -6,18 +6,17 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
-import BarraNavegacao from './src/components/BarraNavegacao';
+import CenaPrincipal from './src/components/CenaPrincipal';
 
 export default class App extends Component {
-  render() {
-    return (
-      <BarraNavegacao />
-    );
-  }
+	render() {
+		return (
+      <View>
+        <CenaPrincipal />
+			</View>
+		);
+	}
 }
