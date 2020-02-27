@@ -7,7 +7,9 @@
  */
 
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Navigator } from 'react-native-deprecated-custom-components';
+
 
 import CenaPrincipal from './src/components/CenaPrincipal';
 import CenaClientes from './src/components/CenaClientes';
@@ -15,9 +17,20 @@ import CenaClientes from './src/components/CenaClientes';
 export default class App extends Component {
 	render() {
 		return (
-      <View>
-        <CenaClientes />
-			</View>
+			<Navigator
+				initialRoute={{id: 'a'}}
+				renderScene={(route, navigator) => {
+					
+					if (route.id === 'a') {
+						return (<CenaPrincipal />);
+					}
+
+					if (route.id === 'b') {
+						return (<CenaClientes />);
+					}
+
+				}} 
+			/>
 		);
 	}
 }

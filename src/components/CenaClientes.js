@@ -23,13 +23,40 @@ export default class CenaClientes extends Component {
           backgroundColor='#CCC'
         />
 				<BarraNavegacao />
-        <Image source={detalheClientes} />
-        <Text>Nossos clientes</Text>
-        <Image source={cliente1} />
-        <Text>bla bla bla bla</Text>
-        <Image source={cliente2} />
-        <Text>bla bla bla bla</Text>
+        <View style={styles.cabecalho}>
+          <Image source={detalheClientes} />
+          <Text style={styles.txtTitulo}>Nossos clientes</Text>
+        </View>
+        <View style={styles.detalheCliente}>
+          <Image source={cliente1} />
+          <Text style={styles.txtDetalheCliente}>bla bla bla bla</Text>
+        </View>
+        <View style={styles.detalheCliente}>
+          <Image source={cliente2} />
+          <Text style={styles.txtDetalheCliente}>bla bla bla bla</Text>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  cabecalho: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  txtTitulo: {
+    fontSize: 30,
+    color: '#B9C941',
+    marginLeft: 10,
+    marginTop: 25,
+  },
+  detalheCliente: {
+    padding: 20,
+    marginTop: 10,
+  },
+  txtDetalheCliente: {
+    fontSize: 18,
+    marginLeft: 20,
+  },  
+});
