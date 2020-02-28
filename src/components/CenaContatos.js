@@ -10,11 +10,9 @@ import React, { Component } from 'react';
 import { View,  StatusBar, Image, Text, StyleSheet } from 'react-native';
 import BarraNavegacao from './BarraNavegacao'
 
-const detalheClientes = require('../imgs/detalhe_cliente.png');
-const cliente1 = require('../imgs/cliente1.png');
-const cliente2 = require('../imgs/cliente2.png');
+const detalheContatos = require('../imgs/detalhe_contato.png');
 
-export default class CenaClientes extends Component {
+export default class CenaContatos extends Component {
   render() {
     return (
 			<View>
@@ -23,17 +21,15 @@ export default class CenaClientes extends Component {
           backgroundColor='#CCC'
         />
 				<BarraNavegacao voltar={true} navigator={this.props.navigator} />
+
         <View style={styles.cabecalho}>
-          <Image source={detalheClientes} />
-          <Text style={styles.txtTitulo}>Nossos clientes</Text>
+          <Image source={detalheContatos} />
+          <Text style={styles.txtTitulo}>Contatos</Text>
         </View>
-        <View style={styles.detalheCliente}>
-          <Image source={cliente1} />
-          <Text style={styles.txtDetalheCliente}>bla bla bla bla</Text>
-        </View>
-        <View style={styles.detalheCliente}>
-          <Image source={cliente2} />
-          <Text style={styles.txtDetalheCliente}>bla bla bla bla</Text>
+        <View style={styles.detalheContato}>
+          <Text style={styles.txtContatos}>TEL: (11) 1234-1234</Text>
+          <Text style={styles.txtContatos}>CEL: (11) 96987-2365</Text>
+          <Text style={styles.txtContatos}>EMAIL: joselito.sem.nocao@gmail.com</Text>
         </View>
       </View>
     );
@@ -47,16 +43,15 @@ const styles = StyleSheet.create({
   },
   txtTitulo: {
     fontSize: 30,
-    color: '#B9C941',
+    color: '#61BD8C',
     marginLeft: 10,
     marginTop: 25,
   },
-  detalheCliente: {
+  detalheContato: {
     padding: 20,
-    marginTop: 10,
+    marginTop: 20,
   },
-  txtDetalheCliente: {
+  txtContatos: {
     fontSize: 18,
-    marginLeft: 20,
-  },  
+  },
 });

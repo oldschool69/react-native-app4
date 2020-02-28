@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { View,  StatusBar, Image, StyleSheet } from 'react-native';
+import { View,  StatusBar, Image, StyleSheet, TouchableHighlight, Alert } from 'react-native';
 import BarraNavegacao from './BarraNavegacao'
 
 const logo = require('../imgs/logo.png');
@@ -17,6 +17,7 @@ const menuEmpresa = require('../imgs/menu_empresa.png');
 const menuServico = require('../imgs/menu_servico.png');
 
 export default class CenaPrincipal extends Component {
+
   render() {
     return (
 			<View>
@@ -24,18 +25,30 @@ export default class CenaPrincipal extends Component {
           //hidden 
           backgroundColor='#CCC'
         />
-				<BarraNavegacao />
+				<BarraNavegacao  voltar={false} />
         <View style={styles.logo}>
           <Image source={logo}></Image>
         </View>
         <View style={styles.menu}>
           <View style={styles.menuGrupo}>
-            <Image style={styles.imgMenu} source={menuCliente}></Image>
-            <Image style={styles.imgMenu} source={menuContato}></Image>
+            <TouchableHighlight onPress={() => {
+              this.props.navigator.push({ id: 'clientes'});
+            }}>
+              <Image style={styles.imgMenu} source={menuCliente}></Image>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => {
+              this.props.navigator.push({ id: 'contatos'});
+            }}>
+              <Image style={styles.imgMenu} source={menuContato}></Image>
+            </TouchableHighlight>
           </View>
           <View style={styles.menuGrupo}>
-            <Image style={styles.imgMenu} source={menuEmpresa}></Image>
-            <Image style={styles.imgMenu} source={menuServico}></Image>
+            <TouchableHighlight>
+              <Image style={styles.imgMenu} source={menuEmpresa}></Image>
+            </TouchableHighlight>
+            <TouchableHighlight>
+              <Image style={styles.imgMenu} source={menuServico}></Image>
+            </TouchableHighlight>
           </View>
         </View>
 			</View>

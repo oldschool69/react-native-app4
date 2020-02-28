@@ -7,15 +7,30 @@
  */
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
+
+const btnVoltar = require('../imgs/btn_voltar.png');
 
 export default class BarraNavegacao extends Component {
   render() {
-    return (
-      <View style={styles.barraTitulo}>
-        <Text style={styles.txtTitulo}>ATM Consultoria</Text>
-      </View>
-    );
+    if (this.props.voltar) {
+      return (
+        <View style={styles.barraTitulo}>
+          <TouchableHighlight onPress={() => {
+            this.props.navigator.pop();
+          }}>
+            <Image source={btnVoltar} />
+          </TouchableHighlight>
+          <Text style={styles.txtTitulo}>ATM Consultoria</Text>
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.barraTitulo}>
+          <Text style={styles.txtTitulo}>ATM Consultoria</Text>
+        </View>
+      );
+    }
   }
 }
 
@@ -24,10 +39,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#CCC',
     padding: 10,
     height: 60,
+    flexDirection: 'row',
   },
   txtTitulo: {
     flex: 1,
-    fontSize: 18, 
+    fontSize: 18,
     textAlign: 'center',
     color: '#000'
   }
