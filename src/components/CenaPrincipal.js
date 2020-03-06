@@ -25,7 +25,7 @@ export default class CenaPrincipal extends Component {
           //hidden 
           backgroundColor='#CCC'
         />
-				<BarraNavegacao  voltar={false} />
+				<BarraNavegacao  voltar={false} corFundo={'#CCC'}/>
         <View style={styles.logo}>
           <Image source={logo}></Image>
         </View>
@@ -43,10 +43,14 @@ export default class CenaPrincipal extends Component {
             </TouchableHighlight>
           </View>
           <View style={styles.menuGrupo}>
-            <TouchableHighlight>
+            <TouchableHighlight onPress={() => {
+              this.props.navigator.push({ id: 'empresa'})  
+            }}>
               <Image style={styles.imgMenu} source={menuEmpresa}></Image>
             </TouchableHighlight>
-            <TouchableHighlight>
+            <TouchableHighlight onPress={()=>{
+              this.props.navigator.push({ id: 'servicos'}) 
+            }}>
               <Image style={styles.imgMenu} source={menuServico}></Image>
             </TouchableHighlight>
           </View>
